@@ -40,6 +40,7 @@ func CorsExamplesHandler(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodOptions {
 			w.Header().Set("Access-Control-Allow-Methods", "OPTIONS, DELETE")
 			w.WriteHeader(http.StatusNoContent)
+			return
 		}
 
 		_, _ = w.Write([]byte(fmt.Sprintf("Hi %s!", allowedOrigin)))
@@ -50,6 +51,7 @@ func CorsExamplesHandler(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodOptions {
 			w.Header().Set("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, PATCH, DELETE")
 			w.WriteHeader(http.StatusNoContent)
+			return
 		}
 
 		_, _ = w.Write([]byte("Hi there!"))
